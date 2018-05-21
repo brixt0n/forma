@@ -1,0 +1,3 @@
+#!/bin/bash
+xrandr --output LVDS-0 --off
+feh --bg-scale ~/.i3/bg.jpg
