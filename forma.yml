@@ -1,0 +1,17 @@
+---
+
+  - hosts: localhost
+    gather_facts: yes
+  
+    vars:
+      - username: "{{ lookup('env', 'USER') }}"
+      - userhome: "{{ lookup('env', 'HOME') }}"
+
+    pre_tasks: []
+
+    roles:
+      - wm
+
+    tasks: []
+
+...

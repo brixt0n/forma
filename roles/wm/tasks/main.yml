@@ -1,0 +1,74 @@
+---
+
+- include_vars:
+    dir: vars
+    extensions: 
+      - yml
+
+- name: Install packages
+  become: yes
+  apt:
+    name: "{{ item }}"
+    install_recommends: yes
+  with_items:
+    - "{{ packages }}"
+
+- name: Copy i3 files
+  synchronize: 
+    src: files/.i3
+    dest: "{{ userhome }}"
+
+- name: Copy scripts
+  synchronize: 
+    src: files/bin
+    dest: "{{ userhome }}"
+
+- name: Template - i3 configuration file
+  template:
+    dest: "{{ i3_config_directory }}/config"
+    src: i3.config.j2
+    mode: 0640
+
+- name: Custom gnome settings to prevent gnome desktop starting
+  command: "{{ item }}"
+  ignore_errors: True
+  with_items:
+    - "gsettings set org.gnome.desktop.background show-desktop-icons false"
+    - "gsettings set org.nemo.desktop show-desktop-icons false"
+  
+- name: Copy vim settings
+  copy:
+    src: files/.vimrc
+    dest: "{{ userhome }}/.vimrc"
+
+- name: Stop NetworkManager from starting (old way)
+  become: yes
+  copy:
+    content: "manual"
+    dest: "/etc/init/network-manager.override"
+
+- name: Stop NetworkManager from starting
+  become: yes
+  systemd:
+    name: "NetworkManager.service"
+    state: stopped
+    enabled: no
+
+- name: Remove NetworkManager
+  become: yes
+  apt:
+    name: network-manager
+    state: absent
+
+- name: Make sure terminator config directory exists
+  file:
+    path: "{{ userhome }}/.config/terminator"
+    state: directory
+
+- name: Terminator profile
+  copy:
+    src: files/terminator-config
+    dest: "{{ userhome }}/.config/terminator/config"
+    force: yes
+
+...

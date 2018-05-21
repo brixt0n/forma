@@ -1,0 +1,8 @@
+#!/bin/bash
+cd ~/.i3
+scrot "ss.png"
+convert "ss.png" -scale 5% -scale 2000% "ss.png"
+i3lock -u -i "ss.png"
+#xscreensaver-command -lock
+#sleep 5
+#xset dpms force off

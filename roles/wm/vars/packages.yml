@@ -1,0 +1,27 @@
+---
+
+packages:
+  - mesa-utils
+  - mesa-utils-extra
+  - xorg
+  - xserver-xorg-core
+  - xserver-xorg
+  - nautilus
+  - gnome-terminal
+  - i3
+  - i3blocks
+  - acpi
+  - rofi
+  - scrot
+  - feh
+  - imagemagick
+  - compton
+  - xbacklight
+  - alsa-utils
+  - tlp
+  - xclip
+  - vim
+  - fonts-inconsolata
+  - terminator
+
+...
