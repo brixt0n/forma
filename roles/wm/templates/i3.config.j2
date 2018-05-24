@@ -161,9 +161,12 @@ bindsym $mod+Left workspace prev
 bindsym $mod+Right workspace next
 bindsym $mod+Control+l exec --no-startup-id "lock"
 bindsym $mod+e exec --no-startup-id "xdg-open ~"
-bindsym $mod+v exec --no-startup-id "sudo /opt/cisco/anyconnect/bin/vpnui"
+bindsym $mod+c exec --no-startup-id "sudo /opt/cisco/anyconnect/bin/vpnui"
 bindsym Print exec scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/' 
 bindsym $mod+s exec scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/' 
+# scratchpad windows
+bindsym $mod+t [class="notes"] scratchpad show
+bindsym $mod+v [class="alsamixer"] scratchpad show
 
 # misc settings
 default_orientation vertical
@@ -181,12 +184,11 @@ bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master 1+ toggle
 # startup applications
 exec --no-startup-id "xbacklight -set 75"
 exec --no-startup-id "feh --bg-scale ~/.i3/bg.jpg"
-exec --no-startup-id "compton --config ~/.i3/compton/compton.cfg"
+exec --no-startup-id "terminator --class alsamixer -e alsamixer"
+#exec --no-startup-id "subl --class notes"
+#exec --no-startup-id "compton --config ~/.i3/compton/compton.cfg -cCGb --backend glx --vsync opengl"
 #exec --no-startup-id "xscreensaver -no-splash &"
 #exec --no-startup-id "xsetroot -solid '#002244'"
-#exec --no-startup-id "xrandr --dpi 142"
-#exec --no-startup-id "xrandr --output DP-5.3 --right-of DP-4 --mode 1920x1080"
-#exec --no-startup-id "xrandr --output DP-6.1 --right-of DP-5.3 --mode 1920x1080"
 
 # floating windows
 for_window [class="Nemo"] floating enable # file browser
@@ -205,3 +207,7 @@ for_window [class="Tomboy"] floating enable
 for_window [class="cm0102.exe"] floating enable
 for_window [class="Vlc"] floating enable
 for_window [class="vlc"] floating enable
+
+# scratchpad windows
+for_window [class="alsamixer"] move to scratchpad
+for_window [class="notes"] move to scratchpad
