@@ -184,7 +184,7 @@ bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master 1+ toggle
 # startup applications
 exec --no-startup-id "xbacklight -set 75"
 exec --no-startup-id "feh --bg-scale ~/.i3/bg.jpg"
-exec --no-startup-id "terminator --class alsamixer -e alsamixer"
+exec --no-startup-id "xterm -class alsamixer -e alsamixer"
 #exec --no-startup-id "subl --class notes"
 #exec --no-startup-id "compton --config ~/.i3/compton/compton.cfg -cCGb --backend glx --vsync opengl"
 #exec --no-startup-id "xscreensaver -no-splash &"
