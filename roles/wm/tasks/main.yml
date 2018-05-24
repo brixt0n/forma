@@ -71,4 +71,22 @@
     dest: "{{ userhome }}/.config/terminator/config"
     force: yes
 
+- name: Add Sublime Text apt key
+  become: yes
+  apt_key:
+    url: https://download.sublimetext.com/sublimehq-pub.gpg
+    state: present
+
+- name: Add Sublime Text repository
+  become: yes
+  apt_repository:
+    repo: "deb https://download.sublimetext.com/ apt/stable/"
+
+- name: Install Sublime Text
+  become: yes
+  apt:
+    name: sublime-text
+    install_recommends: yes
+    update_cache: yes
+
 ...
