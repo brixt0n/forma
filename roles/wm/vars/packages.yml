@@ -40,6 +40,8 @@ packages:
   - libxcb-xkb-dev
   - libxkbcommon-dev
   - libxkbcommon-x11-dev
+  - libxcb-xrm-dev
+  - libxcb-shape0-dev
   - xutils-dev
   - autoconf
  #- i3

@@ -2,6 +2,6 @@
 
 repositories:
   - "deb https://download.sublimetext.com/ apt/stable/"
-  - "ppa:aguignard/ppa"
+  #- "ppa:aguignard/ppa"
 
 ...

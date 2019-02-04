@@ -31,11 +31,11 @@
     src: files/bin
     dest: "{{ userhome }}"
 
-- name: Custom gconf/dconf settings to prevent gnome desktop starting, and terminal settings
+- name: Custom gconf slash dconf settings to prevent gnome desktop starting, and terminal settings
   command: "{{ item }}"
   ignore_errors: True
   with_items:
-    - "{{ gconf-commands }}"
+    - "{{ gconfcommands }}"
   
 - name: Copy vim settings
   copy:
@@ -63,10 +63,16 @@
     repo: "https://www.github.com/Airblader/i3"
     dest: "{{ userhome }}/i3-gaps"
 
+- name: Copy i3 build script
+  synchronize: 
+    src: files/build-i3gaps.sh
+    dest: "{{ userhome }}/i3-gaps"
+
 - name: Build and install i3-gaps
   become: yes
-  chdir: "{{ userhome }}/i3-gaps"
-  command: "build-i3gaps.sh"
+  command: "bash build-i3gaps.sh"
+  args:
+    chdir: "{{ userhome }}/i3-gaps"
 
 - name: Template - i3 configuration file
   template:

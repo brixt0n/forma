@@ -1,0 +1,2 @@
+#!/bin/bash
+xrandr --output DP-4 --primary --output DP-6 --left-of DP-4 --mode 1920x1080 --output DP-1 --left-of DP-6 --mode 1920x1080
