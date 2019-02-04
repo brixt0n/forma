@@ -104,4 +104,11 @@
     name: network-manager
     state: absent
 
+- name: Disable systemd-resolved
+  become: yes
+  systemd:
+    name: "systemd-resolved"
+    state: stopped
+    enabled: no
+
 ...
