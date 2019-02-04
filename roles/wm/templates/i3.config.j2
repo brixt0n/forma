@@ -162,8 +162,9 @@ bindsym $mod+Right workspace next
 bindsym $mod+Control+l exec --no-startup-id "lock"
 bindsym $mod+e exec --no-startup-id "xdg-open ~"
 #bindsym $mod+u exec --no-startup-id "sudo /opt/cisco/anyconnect/bin/vpnui"
-bindsym Print exec scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/' 
-bindsym $mod+s exec scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/' 
+bindsym Print exec --no-startup-id scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/' 
+bindsym $mod+s exec --no-startup-id scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/' 
+#
 # scratchpad windows
 bindsym $mod+t [class="notes"] scratchpad show
 bindsym $mod+v [class="alsamixer"] scratchpad show
@@ -185,10 +186,14 @@ bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master 1+ toggle
 exec --no-startup-id "xbacklight -set 75"
 exec --no-startup-id "feh --bg-scale ~/.i3/bg.jpg"
 exec --no-startup-id "xterm -class alsamixer -e alsamixer"
+exec --no-startup-id "compton --config {{ compton_config_file }} -cCGb --backend glx --vsync opengl"
 #exec --no-startup-id "subl --class notes"
-#exec --no-startup-id "compton --config ~/.i3/compton/compton.cfg -cCGb --backend glx --vsync opengl"
 #exec --no-startup-id "xscreensaver -no-splash &"
 #exec --no-startup-id "xsetroot -solid '#002244'"
+
+for_window [class="^.*"] border pixel 0
+gaps inner 10
+gaps outer 0
 
 # floating windows
 for_window [class="Nemo"] floating enable # file browser
@@ -196,7 +201,6 @@ for_window [class="Eog"] floating enable # image viewer
 for_window [class="burp-StartBurp"] floating enable
 for_window [class="File-roller"] floating enable
 for_window [class="Gcalctool"] floating enable
-for_window [class="Vlc"] floating enable
 for_window [class="Gedit"] floating enable
 for_window [class="Evince"] floating enable
 for_window [class="xfreerdp"] floating enable
@@ -207,6 +211,7 @@ for_window [class="Tomboy"] floating enable
 for_window [class="cm0102.exe"] floating enable
 for_window [class="Vlc"] floating enable
 for_window [class="vlc"] floating enable
+for_window [class="Xviewer"] floating enable
 
 # scratchpad windows
 for_window [class="alsamixer"] move to scratchpad

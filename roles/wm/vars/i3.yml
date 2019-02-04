@@ -1,13 +1,9 @@
 ---
 
-# folders
 i3_config_directory:        "{{ userhome }}/.i3"
 i3blocks_config_directory:  "{{ i3_config_directory }}/blocks"
-
-# files
-i3blocks_config_file: "{{ i3blocks_config_directory }}/i3blocks.conf"
-
-# variables for config file(s)
+i3blocks_config_file:       "{{ i3blocks_config_directory }}/i3blocks.conf"
+compton_config_file:        "{{ i3_config_directory}}/compton/compton.cfg"
 i3_mod_key: Mod4
 
 ...

@@ -1,6 +1,9 @@
 ---
 
 packages:
+  - sublime-text
+  - dconf-gsettings-backend
+  - gnome-terminal
   - mesa-utils
   - mesa-utils-extra
   - xorg
@@ -8,7 +11,6 @@ packages:
   - xserver-xorg
   - nautilus
   - gnome-terminal
-  - i3
   - i3blocks
   - acpi
   - rofi
@@ -23,5 +25,23 @@ packages:
   - vim
   - fonts-inconsolata
   - terminator
+  - build-essential
+  - libxcb1-dev
+  - libxcb-keysyms1-dev
+  - libpango1.0-dev
+  - libxcb-util0-dev
+  - libxcb-icccm4-dev
+  - libyajl-dev
+  - libstartup-notification0-dev
+  - libxcb-randr0-dev
+  - libev-dev
+  - libxcb-cursor-dev
+  - libxcb-xinerama0-dev
+  - libxcb-xkb-dev
+  - libxkbcommon-dev
+  - libxkbcommon-x11-dev
+  - xutils-dev
+  - autoconf
+ #- i3
 
 ...
