@@ -45,6 +45,7 @@ packages:
   - xutils-dev
   - autoconf
   - xterm
+  - resolvconf
  #- i3
 
 ...
