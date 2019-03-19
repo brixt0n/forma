@@ -165,7 +165,7 @@ bindsym $mod+Left workspace prev
 bindsym $mod+Right workspace next
 bindsym $mod+Control+l exec --no-startup-id "lock"
 bindsym $mod+e exec --no-startup-id "xdg-open ~"
-#bindsym $mod+u exec --no-startup-id "sudo /opt/cisco/anyconnect/bin/vpnui"
+bindsym $mod+u exec --no-startup-id "sudo /opt/cisco/anyconnect/bin/vpnui"
 bindsym Print exec --no-startup-id scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/' 
 bindsym $mod+s exec --no-startup-id scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/' 
 #
@@ -196,6 +196,10 @@ exec --no-startup-id "compton --config {{ compton_config_file }} -cCGb --backend
 #exec --no-startup-id "xsetroot -solid '#002244'"
 
 for_window [class="^.*"] border pixel 0
+#
+#colourclass               border    bckgrnd    text
+client.focused             #1793D0   #1793D0    #FFFFFF
+
 gaps inner 10
 gaps outer 0
 
